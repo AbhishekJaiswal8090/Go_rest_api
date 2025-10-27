@@ -28,6 +28,14 @@ func main() {
 			w.Write([]byte("Hello patch method from teachers route"))
 			fmt.Println("Hello method patch on teachers routes")
 		case http.MethodPost:
+			// parse the data (necesary for x.www form url encoded)
+			err := r.ParseForm()
+			if err != nil {
+				http.Error(w, "error prasing form ", http.StatusBadRequest)
+			}
+
+			fmt.Println("form val",( r.Form))
+
 			w.Write([]byte("Hello post method from teachers route"))
 			fmt.Println("Hello method post on teachers routes")
 		case http.MethodPut:
