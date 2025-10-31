@@ -34,7 +34,7 @@ func main() {
 				http.Error(w, "error prasing form ", http.StatusBadRequest)
 			}
 
-			fmt.Println("form val",( r.Form))
+			fmt.Println("form val", (r.Form))
 
 			w.Write([]byte("Hello post method from teachers route"))
 			fmt.Println("Hello method post on teachers routes")
