@@ -34,7 +34,14 @@ func main() {
 				http.Error(w, "error prasing form ", http.StatusBadRequest)
 			}
 
-			fmt.Println("form val", (r.Form))
+			// Processed data 
+
+			response:=make(map[string]interface{})
+			for k,val :=range r.Form{
+               response[k]=val
+			}
+
+			fmt.Println("Processed response are",response)
 
 			w.Write([]byte("Hello post method from teachers route"))
 			fmt.Println("Hello method post on teachers routes")
